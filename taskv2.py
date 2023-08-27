@@ -130,7 +130,6 @@ class EncoderDecoderLSTM(nn.Module):
         decoder_outputs, _ = self.decoder_lstm(encoder_outputs, (decoder_hidden, decoder_cell))
         # Pass decoder outputs through the output layer
         output = self.output_layer(decoder_outputs)
-        #output = torch.softmax(output, dim=2)
         output = torch.mean(output, dim=1)
 
         return output
